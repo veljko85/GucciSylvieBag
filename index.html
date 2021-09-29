@@ -82,11 +82,11 @@
         }
         50% {
           opacity: 1;
-          margin-top: 10%;
+          /* margin-top: 10%; */
         }
         100% {
           opacity: 0;
-          margin-top: 30%;
+          margin-top: 20%;
         }
       }
     </style>
@@ -170,19 +170,19 @@
       />
       <div
         style="
-          width: 10%;
+          width: 20%;
           height: 100px;
           /* background-color: red; */
           position: fixed;
           bottom: 5%;
-          left: 45%;
+          left: 40%;
           text-align: center;
         "
       >
         <h5
           style="
             color: rgb(253, 253, 253);
-            font: 900 0.7vw 'Nunito Sans', sans-serif;
+            font: 900 0.9vw 'Nunito Sans', sans-serif;
           "
         >
           SCROLL TO EXPLORE
@@ -195,8 +195,7 @@
             border-radius: 50%;
             margin-left: auto;
             margin-right: auto;
-            -webkit-animation: slidein-jsx-70116073 1.5s ease-in-out infinite
-              forwards;
+            -webkit-animation: slideIn 1.5s ease-in-out infinite forwards;
             animation: slideIn 1.5s ease-in-out infinite forwards;
           "
         ></div>
@@ -834,7 +833,7 @@
         BABYLON.SceneLoader.ImportMesh(
           "",
           "",
-          "torba3.glb",
+          "torba4.glb",
           scene,
           function (newMeshes) {
             var torba = newMeshes[0];
@@ -1059,7 +1058,7 @@
             };
             setTimeout(function () {
               engine.hideLoadingUI();
-            }, 6000);
+            }, 2000);
           }
         );
         var landingPageContainer = document.getElementById(

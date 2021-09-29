@@ -15,6 +15,9 @@
     <script src="https://code.nath.co/src/jQuery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"></script>
 
+    <!-- lootie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.4/lottie_svg.min.js"></script>
+
     <!-- Babylon.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
     <script src="https://preview.babylonjs.com/ammo.js"></script>
@@ -48,9 +51,62 @@
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
       }
+      .aniOpOn {
+        animation-name: opacityOn;
+        animation-duration: 1s;
+      }
+      .aniOpOff {
+        animation-name: opacityOff;
+        animation-duration: 1s;
+      }
+      @keyframes opacityOn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes opacityOff {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          margin-top: 0;
+        }
+        50% {
+          opacity: 1;
+          margin-top: 10%;
+        }
+        100% {
+          opacity: 0;
+          margin-top: 30%;
+        }
+      }
     </style>
   </head>
   <body>
+    <!-- <div
+      id="loadingDiv"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(255, 255, 255);
+        background: url('img/loadingBackgroundDesGif.gif');
+        background-size: cover;
+        background-position: center;
+        z-index: 25;
+      "
+    ></div> -->
     <div
       class="container"
       style="
@@ -101,13 +157,51 @@
         height: 100vh;
         /* margin-top: -100vh; */
         position: fixed;
-        /* background-color: rgb(7, 7, 7);
-        background: url('beginingBackground.png');
-          background-size: cover; */
+        background: radial-gradient(transparent, black);
         opacity: 1;
         z-index: 2;
+        text-align: center;
       "
-    ></div>
+    >
+      <img
+        src="img/backgroundLogoWhite.png"
+        alt="logo"
+        style="width: 20%; margin-top: 7%"
+      />
+      <div
+        style="
+          width: 10%;
+          height: 100px;
+          /* background-color: red; */
+          position: fixed;
+          bottom: 5%;
+          left: 45%;
+          text-align: center;
+        "
+      >
+        <h5
+          style="
+            color: rgb(253, 253, 253);
+            font: 900 0.7vw 'Nunito Sans', sans-serif;
+          "
+        >
+          SCROLL TO EXPLORE
+        </h5>
+        <div
+          style="
+            width: 12px;
+            height: 12px;
+            background: #dcc484;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-animation: slidein-jsx-70116073 1.5s ease-in-out infinite
+              forwards;
+            animation: slideIn 1.5s ease-in-out infinite forwards;
+          "
+        ></div>
+      </div>
+    </div>
     <div
       style="
         width: 100vw;
@@ -118,6 +212,142 @@
       "
     ></div>
     <div
+      id="firstText"
+      style="
+        width: 20%;
+        height: 20%;
+        position: fixed;
+        bottom: 40%;
+        left: 5%;
+        z-index: 10;
+        opacity: 0;
+        display: none;
+      "
+    >
+      <h2
+        style="
+          color: white;
+          font: 400 1.9vw 'Nunito Sans', sans-serif;
+          line-height: 90%;
+          margin: 0;
+        "
+      >
+        The <br />Gucci 1969<br />Sylvie Bag
+      </h2>
+      <p
+        style="
+          color: rgb(37, 37, 37);
+          font: 500 0.87vw 'Nunito Sans', sans-serif;
+        "
+      >
+        was created by Gucci artisans during a monumental moment of history–when
+        astronauts first touched down on the moon in 1969. The line's
+        distinctive element is the gold-toned chain and buckle closure, a
+        special detail that connects it to the House.
+      </p>
+    </div>
+    <div
+      id="secondText"
+      style="
+        width: 20%;
+        height: 20%;
+        position: fixed;
+        bottom: 40%;
+        right: 15%;
+        z-index: 10;
+        opacity: 0;
+        display: none;
+      "
+    >
+      <h2
+        style="
+          color: white;
+          font: 400 1.9vw 'Nunito Sans', sans-serif;
+          line-height: 90%;
+          margin: 0;
+        "
+      >
+        A SOPHISTICATED<br />
+        MECHANISM
+      </h2>
+      <p
+        style="
+          color: rgb(37, 37, 37);
+          font: 500 0.87vw 'Nunito Sans', sans-serif;
+        "
+      >
+        to adjust the length of the shoulder strap allows the bag to be carried
+        on one shoulder or cross body.
+      </p>
+    </div>
+    <div
+      id="thirdText"
+      style="
+        width: 20%;
+        height: 20%;
+        position: fixed;
+        bottom: 40%;
+        right: 15%;
+        z-index: 10;
+        opacity: 0;
+        display: none;
+      "
+    >
+      <p
+        style="
+          color: rgb(37, 37, 37);
+          font: 500 0.87vw 'Nunito Sans', sans-serif;
+        "
+      >
+        The Gucci 1955 Horsebit bag is modelled on the same shoulder style shape
+        when it launched over
+      </p>
+      <h2
+        style="
+          color: white;
+          font: 400 1.9vw 'Nunito Sans', sans-serif;
+          line-height: 90%;
+          margin: 0;
+        "
+      >
+        SIX DECADES AGO.
+      </h2>
+    </div>
+    <div
+      id="fourthText"
+      style="
+        width: 20%;
+        height: 20%;
+        position: fixed;
+        bottom: 40%;
+        left: 5%;
+        z-index: 10;
+        opacity: 0;
+        display: none;
+      "
+    >
+      <p
+        style="
+          color: rgb(37, 37, 37);
+          font: 500 0.87vw 'Nunito Sans', sans-serif;
+        "
+      >
+        Other Gucci 1955 Horsebit styles include a
+      </p>
+      <h2
+        style="
+          color: white;
+          font: 400 1.9vw 'Nunito Sans', sans-serif;
+          line-height: 90%;
+          margin: 0;
+        "
+      >
+        BUCKET AND A SOFT<br />
+        MESSENGER.
+      </h2>
+    </div>
+    <div
+      id="bagPallete"
       style="
         width: 35%;
         height: 3%;
@@ -125,6 +355,7 @@
         bottom: 3%;
         left: 32.5%;
         z-index: 10;
+        opacity: 0;
         /* background-color: brown; */
       "
     >
@@ -153,12 +384,13 @@
         "
       ></div>
       <div
-        id="yellowBagTag"
+        id="teksasBagTag"
         style="
           width: 4.5%;
           height: 100%;
           margin-left: 4.5%;
-          background: url('img/yellow.png');
+          background: url('img/teksas.png');
+          border-radius: 50%;
           background-size: cover;
           background-position: center;
           float: left;
@@ -177,13 +409,14 @@
         "
       ></div>
       <div
-        id="greenBagTag"
+        id="sareBagTag"
         style="
           width: 4.5%;
           height: 100%;
           margin-left: 4.5%;
-          background: url('img/green.png');
+          background: url('img/sare3.png');
           background-size: cover;
+          border-radius: 50%;
           background-position: center;
           float: left;
         "
@@ -194,7 +427,8 @@
           width: 4.5%;
           height: 100%;
           margin-left: 4.5%;
-          background: url('img/brown.png');
+          background: url('img/kozaBrown.png');
+          border-radius: 50%;
           background-size: cover;
           background-position: center;
           float: left;
@@ -203,10 +437,13 @@
     </div>
 
     <script>
-      var landingPageContainer = document.getElementById(
-        "landingPageContainer"
-      );
-      // window.pageYOffset = 0;
+      window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      };
+      // var loadingDiv = document.getElementById("loadingDiv");
+      // setTimeout(function () {
+      //   loadingDiv.style.display = "none";
+      // }, 17000);
 
       var canvas = document.getElementById("renderCanvas");
 
@@ -222,35 +459,98 @@
           disableWebGL2Support: false,
         });
       };
+      //for loading
+      BABYLON.DefaultLoadingScreen.prototype.displayLoadingUI = function () {
+        if (document.getElementById("customLoadingScreenDiv")) {
+          // Do not add a loading screen if there is already one
+          document.getElementById("customLoadingScreenDiv").style.display =
+            "initial";
+          return;
+        }
+        this._loadingDiv = document.createElement("div");
+        this._loadingDiv.id = "customLoadingScreenDiv";
+        // this._loadingDiv.innerHTML = "aaa";
+        let animItem = bodymovin.loadAnimation({
+          wrapper: this._loadingDiv,
+          animType: "svg",
+          loop: true,
+          path: "https://assets1.lottiefiles.com/private_files/lf30_8tz9qhbm.json",
+        });
+
+        animItem.addEventListener("DOMLoaded", function () {
+          animItem.playSegments(
+            [
+              [0, 100],
+              [32, 100],
+            ],
+            true
+          );
+        });
+        var customLoadingScreenCss = document.createElement("style");
+        customLoadingScreenCss.type = "text/css";
+        if (document.body.clientWidth > document.body.clientHeight) {
+          customLoadingScreenCss.innerHTML = `
+                #customLoadingScreenDiv{
+                  width: 100%;
+                height: 100%;
+                background-color: white;
+                    z-index: 20;
+                }
+                 `;
+        } else {
+          customLoadingScreenCss.innerHTML = `
+                #customLoadingScreenDiv{
+                  width: 100%;
+                height: 100%;
+                background-color: white;
+                    z-index: 20;
+                }
+                 `;
+        }
+        document
+          .getElementsByTagName("head")[0]
+          .appendChild(customLoadingScreenCss);
+        this._resizeLoadingUI();
+        window.addEventListener("resize", this._resizeLoadingUI);
+        document.body.appendChild(this._loadingDiv);
+      };
+
+      BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function () {
+        document.getElementById("customLoadingScreenDiv").style.display =
+          "none";
+        // console.log("scene is now loaded");
+      };
+      //end of loading
       var createScene = function () {
+        engine.displayLoadingUI();
         var scene = new BABYLON.Scene(engine);
 
         // scene.clearColor = new BABYLON.Color3.FromHexString("#ffffff");
 
-        var light = new BABYLON.HemisphericLight(
-          "light",
-          new BABYLON.Vector3(0, 1, -1),
-          scene
-        );
-        light.intensity = 1;
-        var light2 = new BABYLON.HemisphericLight(
-          "light",
-          new BABYLON.Vector3(0, 1, 1),
-          scene
-        );
-        light2.intensity = 1;
-        var light3 = new BABYLON.HemisphericLight(
-          "light",
-          new BABYLON.Vector3(0, -1, -1),
-          scene
-        );
-        light3.intensity = 1;
-        var light4 = new BABYLON.HemisphericLight(
-          "light",
-          new BABYLON.Vector3(0, -1, 1),
-          scene
-        );
-        light4.intensity = 1;
+        // var light = new BABYLON.HemisphericLight(
+        //   "light",
+        //   new BABYLON.Vector3(0, 1, 1),
+        //   scene
+        // );
+        // light.intensity = 1;
+        // var light2 = new BABYLON.HemisphericLight(
+        //   "light",
+        //   new BABYLON.Vector3(0, 1, 1),
+        //   scene
+        // );
+        // light2.intensity = 1;
+        // var light3 = new BABYLON.HemisphericLight(
+        //   "light",
+        //   new BABYLON.Vector3(0, -1, -1),
+        //   scene
+        // );
+        // light3.intensity = 1;
+        // var light4 = new BABYLON.HemisphericLight(
+        //   "light",
+        //   new BABYLON.Vector3(0, -1, 1),
+        //   scene
+        // );
+        // light4.intensity = 1;
 
         var camera = new BABYLON.ArcRotateCamera(
           "Camera",
@@ -531,29 +831,27 @@
           100
         );
 
-        let blackBagTag = document.getElementById("blackBagTag");
-        blackBagTag.onclick = () => {
-          console.log("radi");
-        };
-
         BABYLON.SceneLoader.ImportMesh(
           "",
           "",
-          "meshes/torba.glb",
+          "torba3.glb",
           scene,
           function (newMeshes) {
             var torba = newMeshes[0];
+            // torba.rotationQuaternion = null;
             scene.activeCamera = scene.cameras[1];
+
             // scene.activeCamera.attachControl(canvas, false);
+
+            scene.animationGroups
+              .find((a) => a.name === "teloAction.001")
+              .stop(true, 1, 0);
 
             scene.animationGroups.find((a) => a.name === "CameraAction").play();
             scene.animationGroups
               .find((a) => a.name === "CameraAction")
               .pause();
 
-            var landingPageContainer = document.getElementById(
-              "landingPageContainer"
-            );
             var frame = 0;
             let oldValue = 0;
             let newValue = 0;
@@ -565,6 +863,11 @@
                 if (oldValue < newValue) {
                   frame = currentScroll * 0.001;
                   torba.position.y = -(currentScroll * 0.0001);
+                  if (currentScroll < 100) {
+                    scene.animationGroups
+                      .find((a) => a.name === "teloAction.001")
+                      .start(false, 1, 0);
+                  }
                 } else if (oldValue > newValue) {
                   frame = currentScroll * 0.001;
                   torba.position.y = -(currentScroll * 0.0001);
@@ -582,70 +885,273 @@
               };
             });
 
-            scene.getMaterialByID("telo").albedoColor =
-              BABYLON.Color3.FromHexString("#000000");
-            scene.getMaterialByID("masne").albedoColor =
-              BABYLON.Color3.FromHexString("#000000");
-            scene.getMaterialByID("sav").albedoColor =
-              BABYLON.Color3.FromHexString("#000000");
+            // scene.getMaterialByID("telo").albedoColor =
+            //   BABYLON.Color3.FromHexString("#000000");
+            // scene.getMaterialByID("masne").albedoColor =
+            //   BABYLON.Color3.FromHexString("#000000");
+            // scene.getMaterialByID("sav").albedoColor =
+            //   BABYLON.Color3.FromHexString("#000000");
+
+            var teloMaterials = [
+              "braon_koza",
+              "plavi_tekstil",
+              "sare_tekstil",
+              "telo",
+            ];
+
+            for (let i = 0; i < teloMaterials.length; i++) {
+              scene.getMaterialByID(teloMaterials[i]).lightmapTexture =
+                new BABYLON.Texture("meshes/telo.png", scene);
+              scene.getMaterialByID(
+                teloMaterials[i]
+              ).lightmapTexture.uScale = 1; //and/or the following for vScale:
+              scene.getMaterialByID(teloMaterials[i]).lightmapTexture.vScale =
+                -1; //(-1.0 or some other value)
+
+              scene.getMaterialByID(
+                teloMaterials[i]
+              ).useLightmapAsShadowmap = true;
+            }
+
+            // var teloMat = new BABYLON.StandardMaterial("teloMat", scene);
+            // teloMat.lightmapTexture = new BABYLON.Texture(
+            //   "meshes/telo.png",
+            //   scene
+            // );
+            // // teloMat.lightmapTexture.coordinatesIndex = 0;
+            // teloMat.useLightmapAsShadowmap = true;
+            // teloMat.albedoTexture = new BABYLON.Texture(
+            //   "meshes/telo_diffuse.jpg",
+            //   scene
+            // );
+            // teloMat.lightmapTexture.uScale = 1; //and/or the following for vScale:
+            // teloMat.lightmapTexture.vScale = -1; //(-1.0 or some other value)
+            // teloMat.albedoTexture.uScale = 1; //and/or the following for vScale:
+            // teloMat.albedoTexture.vScale = -1; //(-1.0 or some other value)
+            // teloMat.albedoColor = new BABYLON.Color3(0, 1, 0); //Green
+            // scene.getMeshByName("telo").material = teloMat;
+
+            function animBagCol(mesh, newColor) {
+              const anim = new BABYLON.Animation(
+                "animBagCol",
+                "material.albedoColor",
+                60,
+                BABYLON.Animation.ANIMATIONTYPE_COLOR3,
+                BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+              );
+              anim.setKeys([
+                {
+                  frame: 0,
+                  value:
+                    scene.getMeshByName("telo_primitive0").material.albedoColor,
+                },
+                // { frame: 10, value: -1 },
+                // { frame: 18, value: -0.5 },
+                // { frame: 20, value: -0.5 },
+                { frame: 60, value: newColor },
+              ]);
+              mesh.animations = [];
+              mesh.animations.push(anim);
+              return scene.beginAnimation(mesh, 0, 60, false);
+            }
+
+            // scene.getMaterialByID("masne").lightmapTexture =
+            //   new BABYLON.Texture("meshes/masne.png", scene);
+
+            // scene.getMaterialByID("masne").useLightmapAsShadowmap = true;
+            // scene.getMaterialByID("telo").coordinatesIndex = 1;
+
+            // console.log(scene.getMaterialByID("telo").lightmapTexture.uOffset);
+            // console.log(teloMat.lightmapTexture.coordinatesIndex);
+
+            console.log(
+              scene.getMeshByName("telo_primitive0").material.albedoColor
+            );
 
             let blackBagTag = document.getElementById("blackBagTag");
             blackBagTag.onclick = () => {
-              scene.getMaterialByID("telo").albedoColor =
-                BABYLON.Color3.FromHexString("#000000");
-              scene.getMaterialByID("masne").albedoColor =
-                BABYLON.Color3.FromHexString("#000000");
+              setTimeout(function () {
+                scene.getMeshByName("telo_primitive0").material =
+                  scene.getMaterialByID("braon_koza");
+                scene.getMeshByName("telo_primitive4").material =
+                  scene.getMaterialByID("braon_koza");
+                scene.getMaterialByID("braon_koza").albedoColor =
+                  BABYLON.Color3.FromHexString("#000000");
+              }, 500);
+              scene.animationGroups
+                .find((a) => a.name === "teloAction.001")
+                .start(false, 1, 0);
             };
 
             let redBagTag = document.getElementById("redBagTag");
             redBagTag.onclick = () => {
-              scene.getMaterialByID("telo").albedoColor =
-                BABYLON.Color3.FromHexString("#ff0000");
-              scene.getMaterialByID("masne").albedoColor =
-                BABYLON.Color3.FromHexString("#ff0000");
+              setTimeout(function () {
+                scene.getMeshByName("telo_primitive0").material =
+                  scene.getMaterialByID("telo");
+                scene.getMeshByName("telo_primitive4").material =
+                  scene.getMaterialByID("rucka");
+                scene.getMaterialByID("telo").albedoColor =
+                  BABYLON.Color3.FromHexString("#ff0000");
+                scene.getMaterialByID("rucka").albedoColor =
+                  BABYLON.Color3.FromHexString("#ff0000");
+              }, 500);
+              scene.animationGroups
+                .find((a) => a.name === "teloAction.001")
+                .start(false, 1, 0);
             };
 
-            let yellowBagTag = document.getElementById("yellowBagTag");
-            yellowBagTag.onclick = () => {
-              scene.getMaterialByID("telo").albedoColor =
-                BABYLON.Color3.FromHexString("#ffff00");
-              scene.getMaterialByID("masne").albedoColor =
-                BABYLON.Color3.FromHexString("#ffff00");
+            let teksasBagTag = document.getElementById("teksasBagTag");
+            teksasBagTag.onclick = () => {
+              setTimeout(function () {
+                scene.getMeshByName("telo_primitive0").material =
+                  scene.getMaterialByID("plavi_tekstil");
+                scene.getMeshByName("telo_primitive4").material =
+                  scene.getMaterialByID("plavi_tekstil");
+              }, 500);
+              scene.animationGroups
+                .find((a) => a.name === "teloAction.001")
+                .start(false, 1, 0);
             };
 
             let whiteBagTag = document.getElementById("whiteBagTag");
             whiteBagTag.onclick = () => {
-              scene.getMaterialByID("telo").albedoColor =
-                BABYLON.Color3.FromHexString("#ffffff");
-              scene.getMaterialByID("masne").albedoColor =
-                BABYLON.Color3.FromHexString("#ffffff");
+              setTimeout(function () {
+                scene.getMeshByName("telo_primitive0").material =
+                  scene.getMaterialByID("telo");
+                scene.getMeshByName("telo_primitive4").material =
+                  scene.getMaterialByID("rucka");
+                scene.getMaterialByID("telo").albedoColor =
+                  BABYLON.Color3.FromHexString("#ffffff");
+                scene.getMaterialByID("rucka").albedoColor =
+                  BABYLON.Color3.FromHexString("#ffffff");
+              }, 500);
+              scene.animationGroups
+                .find((a) => a.name === "teloAction.001")
+                .start(false, 1, 0);
             };
 
-            let greenBagTag = document.getElementById("greenBagTag");
-            greenBagTag.onclick = () => {
-              scene.getMaterialByID("telo").albedoColor =
-                BABYLON.Color3.FromHexString("#116A1D");
-              scene.getMaterialByID("masne").albedoColor =
-                BABYLON.Color3.FromHexString("#116A1D");
+            let sareBagTag = document.getElementById("sareBagTag");
+            sareBagTag.onclick = () => {
+              setTimeout(function () {
+                scene.getMeshByName("telo_primitive0").material =
+                  scene.getMaterialByID("sare_tekstil");
+                scene.getMeshByName("telo_primitive4").material =
+                  scene.getMaterialByID("sare_tekstil");
+              }, 500);
+              scene.animationGroups
+                .find((a) => a.name === "teloAction.001")
+                .start(false, 1, 0);
             };
 
             let brownBagTag = document.getElementById("brownBagTag");
             brownBagTag.onclick = () => {
-              scene.getMaterialByID("telo").albedoColor =
-                BABYLON.Color3.FromHexString("#8B4513");
-              scene.getMaterialByID("masne").albedoColor =
-                BABYLON.Color3.FromHexString("#271203");
+              setTimeout(function () {
+                scene.getMeshByName("telo_primitive0").material =
+                  scene.getMaterialByID("braon_koza");
+                scene.getMeshByName("telo_primitive4").material =
+                  scene.getMaterialByID("braon_koza");
+                scene.getMaterialByID("braon_koza").albedoColor =
+                  BABYLON.Color3.FromHexString("#ffffff");
+              }, 500);
+              scene.animationGroups
+                .find((a) => a.name === "teloAction.001")
+                .start(false, 1, 0);
             };
-
-            //green 116A1D
-            //brown 8B4513
+            setTimeout(function () {
+              engine.hideLoadingUI();
+            }, 6000);
           }
         );
+        var landingPageContainer = document.getElementById(
+          "landingPageContainer"
+        );
+        var bagPallete = document.getElementById("bagPallete");
         var scollDiv = document.getElementById("scrollDiv");
+        var firstText = document.getElementById("firstText");
+        var secondText = document.getElementById("secondText");
+        var thirdText = document.getElementById("thirdText");
+        var fourthText = document.getElementById("fourthText");
+        const checkpoint = 600;
         let max = document.body.scrollHeight - innerHeight;
         document.addEventListener("scroll", function () {
-          // console.log((pageYOffset / max) * 1);
           scollDiv.style.height = (pageYOffset / max) * 99 + "%";
+          // console.log(window.pageYOffset);
+          if (window.pageYOffset <= checkpoint) {
+            landingPageContainer.style.opacity =
+              1 - window.pageYOffset / checkpoint;
+            bagPallete.style.opacity = window.pageYOffset / checkpoint;
+          } else {
+            landingPageContainer.style.opacity = 0;
+            bagPallete.style.opacity = 1;
+          }
+
+          if (window.pageYOffset > 3400 && window.pageYOffset < 5500) {
+            firstText.style.display = "block";
+            firstText.classList.remove("aniOpOff");
+            firstText.classList.add("aniOpOn");
+            setTimeout(function () {
+              firstText.style.opacity = "1";
+            }, 900);
+          }
+          if (window.pageYOffset < 3400 || window.pageYOffset > 5500) {
+            firstText.classList.remove("aniOpOn");
+            firstText.classList.add("aniOpOff");
+            setTimeout(function () {
+              firstText.style.opacity = "0";
+              firstText.style.display = "none";
+            }, 900);
+          }
+
+          if (window.pageYOffset > 8500 && window.pageYOffset < 10000) {
+            secondText.style.display = "block";
+            secondText.classList.add("aniOpOn");
+            secondText.classList.remove("aniOpOff");
+            setTimeout(function () {
+              secondText.style.opacity = "1";
+            }, 900);
+          }
+          if (window.pageYOffset < 8500 || window.pageYOffset > 10000) {
+            secondText.classList.remove("aniOpOn");
+            secondText.classList.add("aniOpOff");
+            setTimeout(function () {
+              secondText.style.opacity = "0";
+              secondText.style.display = "none";
+            }, 900);
+          }
+
+          if (window.pageYOffset > 18000 && window.pageYOffset < 19500) {
+            thirdText.style.display = "block";
+            thirdText.classList.remove("aniOpOff");
+            thirdText.classList.add("aniOpOn");
+            setTimeout(function () {
+              thirdText.style.opacity = "1";
+            }, 900);
+          }
+          if (window.pageYOffset < 18000 || window.pageYOffset > 19500) {
+            thirdText.classList.remove("aniOpOn");
+            thirdText.classList.add("aniOpOff");
+            setTimeout(function () {
+              thirdText.style.opacity = "0";
+              thirdText.style.display = "none";
+            }, 900);
+          }
+
+          if (window.pageYOffset > 21000 && window.pageYOffset < 22500) {
+            fourthText.style.display = "block";
+            fourthText.classList.remove("aniOpOff");
+            fourthText.classList.add("aniOpOn");
+            setTimeout(function () {
+              fourthText.style.opacity = "1";
+            }, 900);
+          }
+          if (window.pageYOffset < 21000 || window.pageYOffset > 22500) {
+            fourthText.classList.remove("aniOpOn");
+            fourthText.classList.add("aniOpOff");
+            setTimeout(function () {
+              fourthText.style.opacity = "0";
+              fourthText.style.display = "none";
+            }, 900);
+          }
         });
 
         return scene;

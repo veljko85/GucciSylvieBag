@@ -296,7 +296,7 @@ var createScene = function () {
   BABYLON.SceneLoader.ImportMeshAsync(
     "",
     "https://raw.githubusercontent.com/veljko85/GucciSylvieBag/gh-pages/meshes/",
-    "torba3.glb"
+    "torba4.glb"
   ).then((result) => {
     var torba = result.meshes[0];
     // torba.rotationQuaternion = null;
@@ -400,7 +400,7 @@ var createScene = function () {
         scene.getMeshByName("telo_primitive0").material =
           scene.getMaterialByID("braon_koza");
         scene.getMeshByName("telo_primitive4").material =
-          scene.getMaterialByID("braon_koza");
+          scene.getMaterialByID("braon_koza_rucka");
         scene.getMaterialByID("braon_koza").albedoColor =
           BABYLON.Color3.FromHexString("#000000");
         scene.getMaterialByID("sav").albedoColor =
@@ -439,8 +439,9 @@ var createScene = function () {
       setTimeout(function () {
         scene.getMeshByName("telo_primitive0").material =
           scene.getMaterialByID("plavi_tekstil");
-        scene.getMeshByName("telo_primitive4").material =
-          scene.getMaterialByID("plavi_tekstil");
+        scene.getMeshByName("telo_primitive4").material = scene.getMaterialByID(
+          "plavi_tekstil_rucka"
+        );
         scene.getMaterialByID("sav").albedoColor =
           BABYLON.Color3.FromHexString("#000000");
       }, 500);
@@ -478,7 +479,7 @@ var createScene = function () {
         scene.getMeshByName("telo_primitive0").material =
           scene.getMaterialByID("sare_tekstil");
         scene.getMeshByName("telo_primitive4").material =
-          scene.getMaterialByID("sare_tekstil");
+          scene.getMaterialByID("sare_tekstil_rucka");
         scene.getMaterialByID("sav").albedoColor =
           BABYLON.Color3.FromHexString("#000000");
       }, 500);
@@ -495,7 +496,7 @@ var createScene = function () {
         scene.getMeshByName("telo_primitive0").material =
           scene.getMaterialByID("braon_koza");
         scene.getMeshByName("telo_primitive4").material =
-          scene.getMaterialByID("braon_koza");
+          scene.getMaterialByID("braon_koza_rucka");
         scene.getMaterialByID("braon_koza").albedoColor =
           BABYLON.Color3.FromHexString("#ffffff");
         scene.getMaterialByID("sav").albedoColor =
@@ -524,6 +525,9 @@ var createScene = function () {
   var fourthTextBabylonGucci = document.getElementById(
     "fourthTextBabylonGucci"
   );
+  var shopButtonBabylonGucci = document.getElementById(
+    "shopButtonBabylonGucci"
+  );
   const checkpoint = 600;
   let max = document.body.scrollHeight - innerHeight;
   document.addEventListener("scroll", function () {
@@ -535,6 +539,39 @@ var createScene = function () {
     } else {
       landingPageContainerBabylonGucci.style.opacity = 0;
       bagPalleteBabylonGucci.style.opacity = 1;
+    }
+    if (window.innerWidth > window.innerHeight) {
+      if (window.pageYOffset > 23600) {
+        shopButtonBabylonGucci.style.display = "flex";
+        shopButtonBabylonGucci.classList.remove("aniOpOff");
+        shopButtonBabylonGucci.classList.add("aniOpOn");
+        setTimeout(function () {
+          shopButtonBabylonGucci.style.opacity = "1";
+        }, 600);
+      } else {
+        shopButtonBabylonGucci.classList.remove("aniOpOn");
+        shopButtonBabylonGucci.classList.add("aniOpOff");
+        setTimeout(function () {
+          shopButtonBabylonGucci.style.opacity = "0";
+          // shopButtonBabylonGucci.style.display = "none";
+        }, 600);
+      }
+    } else if (window.innerWidth < window.innerHeight) {
+      if (window.pageYOffset > 23000) {
+        shopButtonBabylonGucci.style.display = "flex";
+        shopButtonBabylonGucci.classList.remove("aniOpOff");
+        shopButtonBabylonGucci.classList.add("aniOpOn");
+        setTimeout(function () {
+          shopButtonBabylonGucci.style.opacity = "1";
+        }, 600);
+      } else {
+        shopButtonBabylonGucci.classList.remove("aniOpOn");
+        shopButtonBabylonGucci.classList.add("aniOpOff");
+        setTimeout(function () {
+          shopButtonBabylonGucci.style.opacity = "0";
+          // shopButtonBabylonGucci.style.display = "none";
+        }, 600);
+      }
     }
 
     if (window.pageYOffset > 3400 && window.pageYOffset < 5500) {

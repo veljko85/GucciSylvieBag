@@ -557,7 +557,7 @@ var createScene = function () {
         }, 600);
       }
     } else if (window.innerWidth < window.innerHeight) {
-      if (window.pageYOffset > 23000) {
+      if (window.pageYOffset > 22000) {
         shopButtonBabylonGucci.style.display = "flex";
         shopButtonBabylonGucci.classList.remove("aniOpOff");
         shopButtonBabylonGucci.classList.add("aniOpOn");

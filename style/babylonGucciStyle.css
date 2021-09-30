@@ -1,0 +1,283 @@
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+.containerBabylonGucci {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  width: 100%;
+  z-index: 5;
+  height: 24900px;
+  overflow-x: hidden;
+}
+.renderCanvasBabylonGucci {
+  width: 100vw;
+  height: 100vh;
+  float: left;
+  position: fixed;
+  touch-action: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+  outline: none !important;
+  opacity: 1;
+}
+#scrollDivBabylonGucci {
+  width: 4px;
+  height: 0;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+  z-index: 10;
+  position: fixed;
+  right: 5px;
+  opacity: 0.5;
+}
+.landingPageContainerBabylonGucci {
+  width: 100vw;
+  height: 100vh;
+  /* margin-top: -100vh; */
+  position: fixed;
+  background: radial-gradient(transparent, black);
+  opacity: 1;
+  z-index: 2;
+  text-align: center;
+}
+.landingLogoBabylonGucci {
+  width: 20%;
+  margin-top: 7%;
+}
+.scroolSignContainerBabylonGucci {
+  width: 10%;
+  height: 100px;
+  position: fixed;
+  bottom: 5%;
+  left: 45%;
+  text-align: center;
+}
+.scroolTextContainerBabylonGucci {
+  color: rgb(253, 253, 253);
+  font: 900 0.7vw "Nunito Sans", sans-serif;
+}
+.scroolSlideDotContainerBabylonGucci {
+  width: 12px;
+  height: 12px;
+  background: #dcc484;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-animation: slidein-jsx-70116073 1.5s ease-in-out infinite forwards;
+  animation: slideIn 1.5s ease-in-out infinite forwards;
+}
+
+.leftTextBabylonGucci {
+  left: 5%;
+  width: 20%;
+  height: 20%;
+  position: fixed;
+  bottom: 40%;
+  z-index: 10;
+  opacity: 0;
+  display: none;
+}
+.rightTextBabylonGucci {
+  right: 5%;
+  width: 20%;
+  height: 20%;
+  position: fixed;
+  bottom: 40%;
+  z-index: 10;
+  opacity: 0;
+  display: none;
+}
+.textH2BabylonGucci {
+  color: white;
+  font: 400 1.9vw "Nunito Sans", sans-serif;
+  line-height: 90%;
+  margin: 0;
+}
+.textPBabylonGucci {
+  color: rgb(37, 37, 37);
+  font: 500 0.87vw "Nunito Sans", sans-serif;
+}
+.bagPalleteBabylonGucci {
+  width: 600px;
+  height: 120px;
+  position: fixed;
+  display: flex;
+  left: 4%;
+  align-items: center;
+  justify-content: center;
+  bottom: 2%;
+  /* left: 32.5vw; */
+  z-index: 10;
+  opacity: 0;
+  /* background-color: rebeccapurple; */
+}
+
+.bagTagBabylonGucci {
+  width: 80px;
+  height: 80px;
+  margin: 0 10px 0 10px;
+  transition: all 0.3s ease-in-out;
+}
+.bagTagBabylonGucci:hover {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  margin: 0 0 17px 0;
+}
+#blackBagTagBabylonGucci {
+  background: url("../img/crnaKozaBall.png");
+  background-size: cover;
+  background-position: center;
+}
+
+#redBagTagBabylonGucci {
+  background: url("../img/crvenaBall.png");
+  background-size: cover;
+  background-position: center;
+}
+#teksasBagTagBabylonGucci {
+  background: url("../img/plaviTekstilBall.png");
+  background-size: cover;
+  background-position: center;
+}
+#whiteBagTagBabylonGucci {
+  background: url("../img/whiteBall.png");
+  background-size: cover;
+  background-position: center;
+}
+#sareBagTagBabylonGucci {
+  background: url("../img/sareBall.png");
+  background-size: cover;
+  background-position: center;
+}
+#brownBagTagBabylonGucci {
+  background: url("../img/braonKozaBall.png");
+  background-size: cover;
+  background-position: center;
+}
+.aniOpOn {
+  animation-name: opacityOn;
+  animation-duration: 0.7s;
+}
+.aniOpOff {
+  animation-name: opacityOff;
+  animation-duration: 0.7s;
+}
+@keyframes opacityOn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes opacityOff {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    margin-top: 0;
+  }
+  50% {
+    opacity: 1;
+    margin-top: 10%;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 30%;
+  }
+}
+@media only screen and (orientation: portrait) {
+  .landingLogoBabylonGucci {
+    width: 70%;
+    margin-top: 7%;
+  }
+  .scroolSignContainerBabylonGucci {
+    width: 35%;
+    height: 200px;
+    position: fixed;
+    bottom: 5%;
+    left: 32.5%;
+    text-align: center;
+    /* background-color: rebeccapurple; */
+  }
+  .scroolTextContainerBabylonGucci {
+    font: 900 30px "Nunito Sans", sans-serif;
+  }
+  .scroolSlideDotContainerBabylonGucci {
+    width: 30px;
+    height: 30px;
+  }
+  .leftTextBabylonGucci {
+    left: 5%;
+    width: 90%;
+    height: 30%;
+    position: fixed;
+    bottom: 65%;
+    z-index: 10;
+    opacity: 0;
+    display: none;
+  }
+  .rightTextBabylonGucci {
+    right: 5%;
+    width: 90%;
+    height: 30%;
+    position: fixed;
+    bottom: 65%;
+    z-index: 10;
+    opacity: 0;
+    display: none;
+  }
+  .textH2BabylonGucci {
+    color: white;
+    font: 400 60px "Nunito Sans", sans-serif;
+    line-height: 90%;
+    margin: 0;
+  }
+  .textPBabylonGucci {
+    color: rgb(37, 37, 37);
+    font: 500 40px "Nunito Sans", sans-serif;
+  }
+  .bagPalleteBabylonGucci {
+    width: 100%;
+    height: 150px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 2%;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    /* background-color: rebeccapurple; */
+  }
+
+  .bagTagBabylonGucci {
+    width: 120px;
+    height: 120px;
+    margin: 0 15px 0 15px;
+    transition: all 0.3s ease-in-out;
+  }
+  .bagTagBabylonGucci:hover {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    margin: 0 0 23px 0;
+  }
+}

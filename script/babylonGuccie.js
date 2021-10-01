@@ -296,11 +296,10 @@ var createScene = function () {
   BABYLON.SceneLoader.ImportMeshAsync(
     "",
     "https://raw.githubusercontent.com/veljko85/GucciSylvieBag/gh-pages/meshes/",
-    "torba4.glb"
+    "torba7.glb"
   ).then((result) => {
     var torba = result.meshes[0];
     // torba.rotationQuaternion = null;
-    console.log(scene.cameras);
     if (window.innerWidth > window.innerHeight) {
       scene.activeCamera = scene.cameras[1];
     } else {
@@ -321,9 +320,9 @@ var createScene = function () {
     var scrollDivBabylonGucci = document.getElementById(
       "scrollDivBabylonGucci"
     );
+
     window.addEventListener("scroll", () => {
       const currentScroll = window.pageYOffset;
-      scrollDivBabylonGucci.style.height = (currentScroll / max) * 99 + "%";
       newValue = window.pageYOffset;
       console.log(currentScroll);
       scene.beforeRender = function () {
@@ -510,6 +509,32 @@ var createScene = function () {
       engine.hideLoadingUI();
     }, 2000);
   });
+
+  function fadeInFadeOutOnePos(posOfFade, element) {
+    if (window.pageYOffset > posOfFade) {
+      setTimeout(function () {
+        element.style.opacity = "1";
+      }, 400);
+    } else {
+      setTimeout(function () {
+        element.style.opacity = "0";
+      }, 400);
+    }
+  }
+
+  function fadeInFadeOutTwoPos(posOfFadeIn, posOfFadeOut, element) {
+    if (window.pageYOffset > posOfFadeIn && window.pageYOffset < posOfFadeOut) {
+      setTimeout(function () {
+        element.style.opacity = "1";
+      }, 400);
+    }
+    if (window.pageYOffset < posOfFadeIn || window.pageYOffset > posOfFadeOut) {
+      setTimeout(function () {
+        element.style.opacity = "0";
+      }, 400);
+    }
+  }
+
   var landingPageContainerBabylonGucci = document.getElementById(
     "landingPageContainerBabylonGucci"
   );
@@ -518,20 +543,27 @@ var createScene = function () {
   );
 
   var firstTextBabylonGucci = document.getElementById("firstTextBabylonGucci");
+
   var secondTextBabylonGucci = document.getElementById(
     "secondTextBabylonGucci"
   );
+
   var thirdTextBabylonGucci = document.getElementById("thirdTextBabylonGucci");
+
   var fourthTextBabylonGucci = document.getElementById(
     "fourthTextBabylonGucci"
   );
+
   var shopButtonBabylonGucci = document.getElementById(
     "shopButtonBabylonGucci"
   );
+
   const checkpoint = 600;
+
   let max = document.body.scrollHeight - innerHeight;
+
   document.addEventListener("scroll", function () {
-    // console.log(window.pageYOffset);
+    scrollDivBabylonGucci.style.height = (window.pageYOffset / max) * 99 + "%";
     if (window.pageYOffset <= checkpoint) {
       landingPageContainerBabylonGucci.style.opacity =
         1 - window.pageYOffset / checkpoint;
@@ -541,106 +573,18 @@ var createScene = function () {
       bagPalleteBabylonGucci.style.opacity = 1;
     }
     if (window.innerWidth > window.innerHeight) {
-      if (window.pageYOffset > 23600) {
-        shopButtonBabylonGucci.style.display = "flex";
-        shopButtonBabylonGucci.classList.remove("aniOpOff");
-        shopButtonBabylonGucci.classList.add("aniOpOn");
-        setTimeout(function () {
-          shopButtonBabylonGucci.style.opacity = "1";
-        }, 600);
-      } else {
-        shopButtonBabylonGucci.classList.remove("aniOpOn");
-        shopButtonBabylonGucci.classList.add("aniOpOff");
-        setTimeout(function () {
-          shopButtonBabylonGucci.style.opacity = "0";
-          // shopButtonBabylonGucci.style.display = "none";
-        }, 600);
-      }
+      fadeInFadeOutOnePos(23600, shopButtonBabylonGucci);
     } else if (window.innerWidth < window.innerHeight) {
-      if (window.pageYOffset > 22000) {
-        shopButtonBabylonGucci.style.display = "flex";
-        shopButtonBabylonGucci.classList.remove("aniOpOff");
-        shopButtonBabylonGucci.classList.add("aniOpOn");
-        setTimeout(function () {
-          shopButtonBabylonGucci.style.opacity = "1";
-        }, 600);
-      } else {
-        shopButtonBabylonGucci.classList.remove("aniOpOn");
-        shopButtonBabylonGucci.classList.add("aniOpOff");
-        setTimeout(function () {
-          shopButtonBabylonGucci.style.opacity = "0";
-          // shopButtonBabylonGucci.style.display = "none";
-        }, 600);
-      }
+      fadeInFadeOutOnePos(22000, shopButtonBabylonGucci);
     }
 
-    if (window.pageYOffset > 3400 && window.pageYOffset < 5500) {
-      firstTextBabylonGucci.style.display = "block";
-      firstTextBabylonGucci.classList.remove("aniOpOff");
-      firstTextBabylonGucci.classList.add("aniOpOn");
-      setTimeout(function () {
-        firstTextBabylonGucci.style.opacity = "1";
-      }, 600);
-    }
-    if (window.pageYOffset < 3400 || window.pageYOffset > 5500) {
-      firstTextBabylonGucci.classList.remove("aniOpOn");
-      firstTextBabylonGucci.classList.add("aniOpOff");
-      setTimeout(function () {
-        firstTextBabylonGucci.style.opacity = "0";
-        firstTextBabylonGucci.style.display = "none";
-      }, 600);
-    }
+    fadeInFadeOutTwoPos(3400, 5500, firstTextBabylonGucci);
 
-    if (window.pageYOffset > 7500 && window.pageYOffset < 9700) {
-      secondTextBabylonGucci.style.display = "block";
-      secondTextBabylonGucci.classList.add("aniOpOn");
-      secondTextBabylonGucci.classList.remove("aniOpOff");
-      setTimeout(function () {
-        secondTextBabylonGucci.style.opacity = "1";
-      }, 600);
-    }
-    if (window.pageYOffset < 7500 || window.pageYOffset > 9700) {
-      secondTextBabylonGucci.classList.remove("aniOpOn");
-      secondTextBabylonGucci.classList.add("aniOpOff");
-      setTimeout(function () {
-        secondTextBabylonGucci.style.opacity = "0";
-        secondTextBabylonGucci.style.display = "none";
-      }, 600);
-    }
+    fadeInFadeOutTwoPos(7500, 9700, secondTextBabylonGucci);
 
-    if (window.pageYOffset > 13700 && window.pageYOffset < 18000) {
-      thirdTextBabylonGucci.style.display = "block";
-      thirdTextBabylonGucci.classList.remove("aniOpOff");
-      thirdTextBabylonGucci.classList.add("aniOpOn");
-      setTimeout(function () {
-        thirdTextBabylonGucci.style.opacity = "1";
-      }, 600);
-    }
-    if (window.pageYOffset < 13700 || window.pageYOffset > 18000) {
-      thirdTextBabylonGucci.classList.remove("aniOpOn");
-      thirdTextBabylonGucci.classList.add("aniOpOff");
-      setTimeout(function () {
-        thirdTextBabylonGucci.style.opacity = "0";
-        thirdTextBabylonGucci.style.display = "none";
-      }, 600);
-    }
+    fadeInFadeOutTwoPos(13700, 18000, thirdTextBabylonGucci);
 
-    if (window.pageYOffset > 18500 && window.pageYOffset < 20100) {
-      fourthTextBabylonGucci.style.display = "block";
-      fourthTextBabylonGucci.classList.remove("aniOpOff");
-      fourthTextBabylonGucci.classList.add("aniOpOn");
-      setTimeout(function () {
-        fourthTextBabylonGucci.style.opacity = "1";
-      }, 600);
-    }
-    if (window.pageYOffset < 18500 || window.pageYOffset > 20100) {
-      fourthTextBabylonGucci.classList.remove("aniOpOn");
-      fourthTextBabylonGucci.classList.add("aniOpOff");
-      setTimeout(function () {
-        fourthTextBabylonGucci.style.opacity = "0";
-        fourthTextBabylonGucci.style.display = "none";
-      }, 600);
-    }
+    fadeInFadeOutTwoPos(18500, 20100, fourthTextBabylonGucci);
   });
 
   return scene;

@@ -82,7 +82,7 @@ BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function () {
 var createScene = function () {
   engine.displayLoadingUI();
   var scene = new BABYLON.Scene(engine);
-
+  scene.environmentIntensity = 1.5;
   // scene.clearColor = new BABYLON.Color3.FromHexString("#ffffff");
 
   // var light = new BABYLON.HemisphericLight(
@@ -108,6 +108,13 @@ var createScene = function () {
     scene
   );
 
+  // var postProcess = new BABYLON.ImageProcessingPostProcess(
+  //   "processing",
+  //   1.0,
+  //   camera
+  // );
+  // postProcess.exposure = 5;
+
   var box = BABYLON.Mesh.CreateBox(
     "SkyBox",
     500,
@@ -117,7 +124,7 @@ var createScene = function () {
   );
   box.material = new BABYLON.SkyMaterial("sky", scene);
   box.material.inclination = -0.35;
-  box.material.luminance = 0.8;
+  box.material.luminance = 0.7;
   box.material.azimuth = 0.25;
   box.material.cameraOffset.y = scene.activeCamera.globalPosition.y;
   box.position.y = 0;
@@ -324,7 +331,7 @@ var createScene = function () {
     window.addEventListener("scroll", () => {
       const currentScroll = window.pageYOffset;
       newValue = window.pageYOffset;
-      console.log(currentScroll);
+      // console.log(currentScroll);
       scene.beforeRender = function () {
         if (
           window.innerWidth < window.innerHeight &&

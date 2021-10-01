@@ -299,7 +299,7 @@ body::-webkit-scrollbar {
   #shopButtonBabylonGucci {
     width: 80%;
     height: 80px;
-    bottom: calc(2% + 180px);
+    bottom: calc(2% + 200px);
     right: 10%;
     border-radius: 50px;
     display: flex;

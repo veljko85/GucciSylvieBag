@@ -80,7 +80,9 @@ BABYLON.DefaultLoadingScreen.prototype.hideLoadingUI = function () {
 };
 //end of loading
 var createScene = function () {
+  // for loading
   engine.displayLoadingUI();
+
   var scene = new BABYLON.Scene(engine);
   scene.environmentIntensity = 1.5;
   // scene.clearColor = new BABYLON.Color3.FromHexString("#ffffff");
@@ -314,12 +316,17 @@ var createScene = function () {
       scene.activeCamera.position.z = 0.3;
       scene.activeCamera.position.y = 0.01;
     }
-
-    // scene.activeCamera.attachControl(canvas, false);
+console.log(scene.cameras)
+    scene.activeCamera.attachControl(canvas, true);
 
     scene.animationGroups
       .find((a) => a.name === "teloAction.001")
       .stop(true, 1, 0);
+
+
+            //             scene.animationGroups
+            // .find((a) => a.name === "CameraAction")
+            // .play(true);
 
     var frame = 0;
     let oldValue = 0;
@@ -331,7 +338,7 @@ var createScene = function () {
     window.addEventListener("scroll", () => {
       const currentScroll = window.pageYOffset;
       newValue = window.pageYOffset;
-      // console.log(currentScroll);
+      console.log(currentScroll);
       scene.beforeRender = function () {
         if (
           window.innerWidth < window.innerHeight &&
@@ -341,7 +348,7 @@ var createScene = function () {
           scene.activeCamera.position.z = currentScroll / 10000;
         }
         if (oldValue < newValue) {
-          frame = currentScroll * 0.001;
+          frame = currentScroll / 15.88;
           torba.position.y = -(currentScroll * 0.0001);
           if (currentScroll < 100) {
             scene.animationGroups
@@ -349,11 +356,12 @@ var createScene = function () {
               .start(false, 1, 0);
           }
         } else if (oldValue > newValue) {
-          frame = currentScroll * 0.001;
+          frame = currentScroll / 15.88;
           torba.position.y = -(currentScroll * 0.0001);
         }
         oldValue = newValue;
         if (window.innerWidth > window.innerHeight) {
+          console.log(frame)
           scene.animationGroups
             .find((a) => a.name === "CameraAction")
             .play(true);
@@ -513,6 +521,7 @@ var createScene = function () {
         .start(false, 1, 0);
     };
     setTimeout(function () {
+      //for loading
       engine.hideLoadingUI();
     }, 2000);
   });
